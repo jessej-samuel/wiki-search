@@ -4,22 +4,23 @@ import { useState } from "react";
 import SearchResults from "./components/SearchResults";
 
 export interface Results {
-  query: any;
   search: {
     pageid: number;
     title: string;
+    wordcount: number;
+    snippet: string;
+    timestamp: string;
   }[];
+  searchinfo: {
+    totalhits: number;
+    suggestion: string;
+  };
 }
 
 function App() {
   const [results, setResults] = useState({
-    search: [
-      {
-        pageid: 0,
-        title: "",
-      },
-    ],
-  } as Results);
+    search: [],
+  } as unknown as Results);
 
   return (
     <div className="App">

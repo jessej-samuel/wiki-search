@@ -16,9 +16,12 @@ const Search = ({ setResults }: { setResults: any }) => {
       });
       return res;
     };
+    const start = new Date().getTime();
+    let end = 0;
     fetchData().then((res) => {
+      end = new Date().getTime();
       setSearchTerm("");
-      setResults(res.data.query);
+      setResults({ ...res.data.query, time: `${(end - start)/1000}s` });
     });
   };
 
