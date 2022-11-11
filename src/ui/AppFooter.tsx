@@ -3,7 +3,7 @@ const AppFooter = () => {
     <footer className="footer absolute bottom-0 py-4">
       <div className="content has-text-centered">
         <p>
-          <strong>WikiSearch</strong> by{" "}
+          <strong className="font-semibold">WikiSearch</strong> by{" "}
           <a
             href="https://github.com/jessej-samuel/"
             className="text-blue-500 hover:underline"
