@@ -29,7 +29,7 @@ function App() {
   const [random, setRandom] = useState(false);
 
   return (
-    <div className="bg-neutral-900 flex flex-col items-center pt-12 text-white min-h-screen min-w-[100vw] w-96 p-4">
+    <div className="bg-neutral-900 flex flex-col items-center pt-12 text-white min-h-screen min-w-[100vw] max-w-[100vw] w-96">
       <AppHeader />
       <Search setResults={setResults} setRandom={setRandom} />
 
