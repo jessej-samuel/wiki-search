@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import WikiAPI from "../api/WikiAPI";
 import DebugState from "../utils/DebugState";
-import { FaRandom } from "react-icons/fa";
+import { FaRandom, FaSearch } from "react-icons/fa";
 import { getRandomWiki } from "../api/WikiRandom";
 
 const Search = ({
@@ -38,7 +38,7 @@ const Search = ({
   }, []);
 
   // Handle submit for <form>
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setResults({ search: [] });
     setRandom(false);
@@ -93,8 +93,13 @@ const Search = ({
         placeholder="Search Wikipedia"
         autoFocus
       />
+      {searchTerm.length > 0 && (
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          <FaSearch className="bg-blue-600 hover:bg-blue-500 h-11 w-11 p-3 rounded transition-all hover:scale-105" />
+        </button>
+      )}
       <button type="reset" onClick={handleRandom}>
-        <FaRandom className="bg-blue-600 hover:bg-blue-500 h-11 w-11 p-3 rounded" />
+        <FaRandom className="border border-blue-500 hover:bg-blue-600 h-11 w-11 p-3 rounded transition-all hover:scale-105" />
       </button>
     </form>
   );
