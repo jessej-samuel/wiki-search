@@ -1,13 +1,13 @@
 import Search from "./components/Search";
 
-import { useState } from "react";
+import { Key, useState } from "react";
 import SearchResults from "./components/SearchResults";
 import AppHeader from "./ui/AppHeader";
 import AppFooter from "./ui/AppFooter";
 
-
 export interface Results {
   search: {
+    id: Key | null | undefined;
     pageid: number;
     title: string;
     wordcount: number;
@@ -26,13 +26,14 @@ function App() {
     search: [],
     searchinfo: { totalhits: 0, suggestion: "" },
   } as unknown as Results);
+  const [random, setRandom] = useState(false);
 
   return (
     <div className="bg-neutral-900 flex flex-col items-center pt-12 text-white min-h-screen min-w-[100vw] w-96 p-4">
       <AppHeader />
-      <Search setResults={setResults} />
-      
-      <SearchResults results={results} />
+      <Search setResults={setResults} setRandom={setRandom} />
+
+      <SearchResults results={results} _random={random} />
       <AppFooter />
     </div>
   );
