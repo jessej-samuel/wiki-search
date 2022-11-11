@@ -26,7 +26,7 @@ const Search = ({ setResults }: { setResults: any }) => {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className="my-12 w-96">
+    <form onSubmit={(e) => handleSubmit(e)} className="mt-12 mb-4 w-96">
       <input
         type={"text"}
         value={searchTerm}

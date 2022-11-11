@@ -5,6 +5,11 @@ import { useRef, useState } from "react";
 const SearchResults = ({ results }: { results: Results }) => {
   return (
     <div className="w-96">
+      <p className="text-xs self-start pl-2">
+        {results.searchinfo.totalhits > 0
+          ? results.searchinfo.totalhits + " results in " + results.time
+          : null}{" "}
+      </p>
       <ul className="w-full overflow-y-scroll h-96 min-h-fit">
         {results.search.length > 0
           ? results.search.map((result) => (
