@@ -23,10 +23,9 @@ function App() {
   } as unknown as Results);
 
   return (
-    <div className="bg-neutral-800 flex flex-col items-center pt-12 text-white">
+    <div className="bg-neutral-800 flex flex-col items-center pt-12 text-white min-h-screen">
       <Search setResults={setResults} />
       <SearchResults results={results} />
-      <pre>{JSON.stringify(results, null, 2)}</pre>
     </div>
   );
 }

@@ -1,0 +1,61 @@
+ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+ul {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.zoomin {
+  animation: zoomin 300ms;
+}
+
+@keyframes zoomin {
+  from {
+    height: 64px;
+  }
+  to {
+    height: 164px;
+  }
+}
+
+.heightAdjustInc {
+  animation: heightAdjustInc 300ms;
+}
+
+@keyframes heightAdjustInc {
+  from {
+    height: 164px;
+  }
+  to {
+    height: 64px;
+  }
+}
+
+.heightAdjustDec {
+  animation: heightAdjustDec 300ms;
+}
+
+@keyframes heightAdjustDec {
+  from {
+    height: 64px;
+  }
+  to {
+    height: 164px;
+  }
+}
+
+.fadein {
+  animation: fadein 300ms;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
