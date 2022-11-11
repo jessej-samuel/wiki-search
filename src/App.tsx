@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import Search from "./components/Search";
+
+import { useState } from "react";
+import SearchResults from "./components/SearchResults";
+
+export interface Results {
+  search: {
+    pageid: number;
+    title: string;
+  }[];
+}
 
 function App() {
+  const [results, setResults] = useState({
+    search: [
+      {
+        pageid: 0,
+        title: "",
+      },
+    ],
+  } as Results);
+
+  const updateResults = (results: any) => {
+    setResults(results);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search setResults={setResults} />
+      <SearchResults results={results} />
+      <pre>{JSON.stringify(results, null, 2)}</pre>
     </div>
   );
 }
