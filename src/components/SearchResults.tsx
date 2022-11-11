@@ -46,7 +46,7 @@ const ResultItem = ({ result }: { result: Result }) => {
   const liRef = useRef<HTMLLIElement>(null);
   return (
     <li
-      className="my-1 p-4 rounded  transition-all  hover:shadow-md bg-neutral-900/50"
+      className="my-1 p-4 rounded-sm transition-all  hover:shadow-md bg-neutral-800/50 hover:bg-neutral-800"
       onMouseEnter={() => {
         setHovered(true);
       }}
@@ -64,8 +64,8 @@ const ResultItem = ({ result }: { result: Result }) => {
           />
 
           <div className="w-full flex justify-between mt-4 items-center">
-            <time className="text-sm text-white/80 transition-all">
-              {new Date(result.timestamp).toLocaleDateString()}
+            <time className="text-xs text-white/60 transition-all">
+              Last edited on {new Date(result.timestamp).toLocaleDateString()}
             </time>
             <a
               href={`https://en.wikipedia.org/?curid=${result.pageid}`}

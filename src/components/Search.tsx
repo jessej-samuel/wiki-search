@@ -31,7 +31,9 @@ const Search = ({ setResults }: { setResults: any }) => {
         type={"text"}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
-        className="bg-neutral-700 border-2 border-neutral-600 focus:border-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-opacity-50 rounded-md text-white w-full p-2"
+        className="bg-neutral-800/50 focus:bg-neutral-800 border-2 border-neutral-600 focus:border-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-opacity-50 rounded-md text-white w-full p-2"
+        placeholder="Search Wikipedia"
+        autoFocus
       />
     </form>
   );
