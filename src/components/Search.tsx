@@ -5,13 +5,8 @@ import DebugState from "../utils/DebugState";
 const Search = ({ setResults }: { setResults: any }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // COntrol the search term
-  useEffect(() => {
-    console.log(searchTerm);
-  }, [searchTerm]);
-
   // Handle submit for <form>
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fetchData = async () => {
       const res = await WikiAPI.get("", {
@@ -19,11 +14,12 @@ const Search = ({ setResults }: { setResults: any }) => {
           srsearch: searchTerm,
         },
       });
-      return res.data;
+      return res;
     };
-    const res = await fetchData();
-
-    setResults(res);
+    fetchData().then((res) => {
+      setSearchTerm("");
+      setResults(res.data.query);
+    });
   };
 
   return (

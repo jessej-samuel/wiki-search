@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import { Results } from "../App";
 
 const SearchResults = ({ results }: { results: Results }) => {
-  useEffect(() => {
-    console.log(results);
-  }, [results]);
-
   return (
     <div>
       <h5>Search results</h5>

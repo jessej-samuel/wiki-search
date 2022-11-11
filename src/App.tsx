@@ -1,11 +1,10 @@
-import React from "react";
-import logo from "./logo.svg";
 import Search from "./components/Search";
 
 import { useState } from "react";
 import SearchResults from "./components/SearchResults";
 
 export interface Results {
+  query: any;
   search: {
     pageid: number;
     title: string;
@@ -21,10 +20,6 @@ function App() {
       },
     ],
   } as Results);
-
-  const updateResults = (results: any) => {
-    setResults(results);
-  };
 
   return (
     <div className="App">
