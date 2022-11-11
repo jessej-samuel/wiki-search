@@ -5,6 +5,7 @@ import SearchResults from "./components/SearchResults";
 import AppHeader from "./ui/AppHeader";
 import AppFooter from "./ui/AppFooter";
 
+
 export interface Results {
   search: {
     pageid: number;
@@ -30,7 +31,7 @@ function App() {
     <div className="bg-neutral-800 flex flex-col items-center pt-12 text-white min-h-screen min-w-[100vw] w-96 p-4">
       <AppHeader />
       <Search setResults={setResults} />
-
+      
       <SearchResults results={results} />
       <AppFooter />
     </div>

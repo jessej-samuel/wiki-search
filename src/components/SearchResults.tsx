@@ -1,6 +1,7 @@
 import { Results } from "../App";
 import "./SearchResults.css";
 import { useRef, useState } from "react";
+import { FiExternalLink } from "react-icons/fi";
 
 const SearchResults = ({ results }: { results: Results }) => {
   return (
@@ -45,16 +46,9 @@ const ResultItem = ({ result }: { result: Result }) => {
   const liRef = useRef<HTMLLIElement>(null);
   return (
     <li
-      className="my-1 p-4 rounded  transition-all  hover:shadow-md"
+      className="my-1 p-4 rounded  transition-all  hover:shadow-md bg-neutral-900/50"
       onMouseEnter={() => {
         setHovered(true);
-        // setTimeout(() => {
-        //   liRef.current?.scrollIntoView({
-        //     behavior: "smooth",
-        //     block: "center",
-        //     // inline: "center",
-        //   });
-        // }, 150);
       }}
       onMouseLeave={() => {
         setHovered(true);
@@ -77,9 +71,9 @@ const ResultItem = ({ result }: { result: Result }) => {
               href={`https://en.wikipedia.org/?curid=${result.pageid}`}
               target="_blank"
               rel="noreferrer"
-              className="text-sm inline text-blue-500 hover:underline visited:text-fuchsia-500 transition-all"
+              className="text-sm inline text-blue-500 hover:underline visited:text-fuchsia-500 transition-all flex items-center"
             >
-              More
+              <FiExternalLink /> Read More
             </a>
           </div>
         </div>
