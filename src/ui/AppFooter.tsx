@@ -1,6 +1,6 @@
 const AppFooter = () => {
   return (
-    <footer className="footer absolute bottom-0 py-4">
+    <footer className="footer absolute bottom-0 py-4 bg-inherit w-full text-center">
       <div className="content has-text-centered">
         <p>
           <strong className="font-semibold">WikiSearch</strong> by{" "}
