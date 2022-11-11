@@ -21,18 +21,18 @@ const Search = ({ setResults }: { setResults: any }) => {
     fetchData().then((res) => {
       end = new Date().getTime();
       setSearchTerm("");
-      setResults({ ...res.data.query, time: `${(end - start)/1000}s` });
+      setResults({ ...res.data.query, time: `${(end - start) / 1000}s` });
     });
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)} className="my-12 w-96">
       <input
-        type={"search"}
+        type={"text"}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
+        className="bg-neutral-700 border-2 border-neutral-600 focus:border-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-opacity-50 rounded-md text-white w-full p-2"
       />
-      <DebugState state={searchTerm} name="search" />
     </form>
   );
 };

@@ -23,7 +23,7 @@ function App() {
   } as unknown as Results);
 
   return (
-    <div className="App">
+    <div className="bg-neutral-800 flex flex-col items-center pt-12 text-white">
       <Search setResults={setResults} />
       <SearchResults results={results} />
       <pre>{JSON.stringify(results, null, 2)}</pre>
