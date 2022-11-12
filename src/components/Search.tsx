@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import WikiAPI from "../api/WikiAPI";
 import { FaRandom, FaSearch } from "react-icons/fa";
 import { getRandomWiki } from "../api/WikiRandom";
+import { useWindowSize, useMouse } from "react-use";
+import Confetti from "react-confetti";
 
 const Search = ({
   setResults,
@@ -10,9 +12,13 @@ const Search = ({
   setResults: any;
   setRandom: any;
 }) => {
+  const { width, height } = useWindowSize();
   const [searchTerm, setSearchTerm] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const ref = useRef<HTMLFormElement>(null);
+  const randomRef = useRef<HTMLButtonElement>(null);
+
+  const [showConfetti, setShowConfetti] = useState(false);
 
   // Fetches the search results from the API
   const fetchData = async () => {
@@ -24,6 +30,8 @@ const Search = ({
     console.log(res);
     return res;
   };
+
+  
 
   useEffect(() => {
     if (window) {
@@ -53,6 +61,8 @@ const Search = ({
   // Handle submit for random button
   const handleRandom = (e: any) => {
     e.preventDefault();
+    setShowConfetti(true);
+    setTimeout(() => {}, 3000);
     let start = new Date().getTime();
     let end = 0;
     setResults({ search: [] });
@@ -97,9 +107,30 @@ const Search = ({
           <FaSearch className="bg-blue-600 hover:bg-blue-500 h-11 w-11 p-3 rounded transition-all hover:scale-105" />
         </button>
       )}
-      <button type="reset" onClick={handleRandom}>
+      <button type="reset" onClick={handleRandom} ref={randomRef}>
         <FaRandom className="border border-blue-500 hover:bg-blue-600 h-11 w-11 p-3 rounded transition-all hover:scale-105" />
       </button>
+      {showConfetti && (
+        <Confetti
+          width={width}
+          height={height}
+          className="opacity-100"
+          numberOfPieces={150}
+          onConfettiComplete={() => setShowConfetti(false)}
+          colors={[
+            "#03045e",
+            "#023e8a",
+            "#0077b6",
+            "#0096c7",
+            "#00b4d8",
+            "#48cae4",
+            "#90e0ef",
+            "#ade8f4",
+            "#caf0f8",
+          ]}
+          recycle={false}
+        />
+      )}
     </form>
   );
 };
