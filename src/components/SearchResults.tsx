@@ -94,9 +94,9 @@ const ResultItem = ({
               href={`https://en.wikipedia.org/?curid=${result.pageid}`}
               target="_blank"
               rel="noreferrer"
-              className="text-sm inline text-blue-500 hover:underline visited:text-fuchsia-500 transition-all flex items-center"
+              className="text-base text-blue-500 hover:underline visited:text-fuchsia-500 transition-all flex items-center"
             >
-              <FiExternalLink /> Read More
+              <FiExternalLink title="Read More" />
             </a>
           </div>
         </div>
