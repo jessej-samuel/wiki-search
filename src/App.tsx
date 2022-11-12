@@ -29,12 +29,14 @@ function App() {
   const [random, setRandom] = useState(false);
 
   return (
-    <div className="bg-neutral-900 flex flex-col items-center pt-12 text-white min-h-screen min-w-[100vw] max-w-[100vw] w-96">
-      <AppHeader />
-      <Search setResults={setResults} setRandom={setRandom} />
+    <div className="bg-neutral-900 flex flex-col items-center pt-12 text-white min-h-screen min-w-fit w-screen">
+      <div className="flex flex-col items-center justify-center">
+        <AppHeader />
+        <Search setResults={setResults} setRandom={setRandom} />
 
-      <SearchResults results={results} _random={random} />
-      <AppFooter />
+        <SearchResults results={results} _random={random} />
+        <AppFooter />
+      </div>
     </div>
   );
 }

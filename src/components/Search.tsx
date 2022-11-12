@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import WikiAPI from "../api/WikiAPI";
-import DebugState from "../utils/DebugState";
 import { FaRandom, FaSearch } from "react-icons/fa";
 import { getRandomWiki } from "../api/WikiRandom";
 
