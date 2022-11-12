@@ -64,7 +64,7 @@ const ResultItem = ({
   result: Result;
   random: boolean;
 }) => {
-  const [hovered, setHovered] = useState<boolean>(true);
+  const [, setHovered] = useState<boolean>(true);
   const resRef = useRef<HTMLDivElement>(null);
   const liRef = useRef<HTMLLIElement>(null);
   return (
